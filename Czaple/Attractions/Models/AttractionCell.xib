@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="attractionCell" rowHeight="240" id="KGk-i7-Jjw" customClass="AttractionCell" customModule="Czaple" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="239.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1va-iL-tyl">
+                        <rect key="frame" x="8" y="8" width="304" height="223.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mini Ścieżka" translatesAutoresizingMaskIntoConstraints="NO" id="K4N-d8-Npm">
+                                <rect key="frame" x="0.0" y="0.0" width="304" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="hxs-Cb-J0g"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Szlak Kamiennych Krzyży" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDB-Fq-NJd">
+                                <rect key="frame" x="2" y="188" width="300" height="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="18" id="BxI-Lf-y42"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-Xl-0mP">
+                                <rect key="frame" x="2" y="207" width="80" height="14"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="6el-qD-H5z"/>
+                                    <constraint firstAttribute="height" constant="14" id="mW5-0C-mtw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.72248524430000005" green="0.6150249243" blue="0.42720681430000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="czapla_ikona" translatesAutoresizingMaskIntoConstraints="NO" id="rbf-AV-CEO">
+                                <rect key="frame" x="224" y="163.5" width="80" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="8GC-Hv-uYe"/>
+                                    <constraint firstAttribute="height" constant="60" id="hLU-9a-z2m"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="EU1-Xl-0mP" firstAttribute="leading" secondItem="1va-iL-tyl" secondAttribute="leading" constant="2" id="4wK-Di-eX6"/>
+                            <constraint firstAttribute="trailing" secondItem="qDB-Fq-NJd" secondAttribute="trailing" constant="2" id="IsN-Md-dYs"/>
+                            <constraint firstAttribute="trailing" secondItem="K4N-d8-Npm" secondAttribute="trailing" id="L6z-Yd-qOc"/>
+                            <constraint firstItem="EU1-Xl-0mP" firstAttribute="top" secondItem="qDB-Fq-NJd" secondAttribute="bottom" constant="1" id="LLI-1j-1sC"/>
+                            <constraint firstAttribute="trailing" secondItem="rbf-AV-CEO" secondAttribute="trailing" id="MMM-jh-Zc1"/>
+                            <constraint firstItem="K4N-d8-Npm" firstAttribute="leading" secondItem="1va-iL-tyl" secondAttribute="leading" id="TFS-kH-uOv"/>
+                            <constraint firstAttribute="bottom" secondItem="rbf-AV-CEO" secondAttribute="bottom" id="Xvp-qa-HxS"/>
+                            <constraint firstItem="qDB-Fq-NJd" firstAttribute="leading" secondItem="1va-iL-tyl" secondAttribute="leading" constant="2" id="bdY-0w-PJz"/>
+                            <constraint firstItem="K4N-d8-Npm" firstAttribute="top" secondItem="1va-iL-tyl" secondAttribute="top" id="gKL-uF-IWn"/>
+                            <constraint firstItem="qDB-Fq-NJd" firstAttribute="top" secondItem="K4N-d8-Npm" secondAttribute="bottom" constant="8" id="uD8-by-NCa"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="1va-iL-tyl" secondAttribute="bottom" constant="8" id="8K6-iw-1Ea"/>
+                    <constraint firstItem="1va-iL-tyl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="MUw-a4-Xhe"/>
+                    <constraint firstAttribute="trailing" secondItem="1va-iL-tyl" secondAttribute="trailing" constant="8" id="Uqx-uk-abj"/>
+                    <constraint firstItem="1va-iL-tyl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="q0D-Tz-bBi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="distance" destination="EU1-Xl-0mP" id="OBK-84-zgz"/>
+                <outlet property="photo" destination="K4N-d8-Npm" id="OOj-aA-Mvy"/>
+                <outlet property="round" destination="1va-iL-tyl" id="THK-Z8-Jj5"/>
+                <outlet property="title" destination="qDB-Fq-NJd" id="CKM-fh-YmW"/>
+            </connections>
+            <point key="canvasLocation" x="131.19999999999999" y="116.04197901049476"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Mini Ścieżka" width="1024" height="685"/>
+        <image name="czapla_ikona" width="202" height="143"/>
+    </resources>
+</document>
