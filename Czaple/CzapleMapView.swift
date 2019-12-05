@@ -13,7 +13,7 @@ class CzapleMapView: UIViewController, CLLocationManagerDelegate {
     var window: UIWindow?
     var mapView: MKMapView?
     var locationManager: CLLocationManager?
-    var attractions = AttractionManager.instance.getAttractions()
+    var attractions = AttractionGetter.instance.getAttractions()
     var other = [Attraction]()
     
     let visibleRadius: Double = 50

@@ -11,7 +11,7 @@ import MapKit
 
 class MainView: UIViewController {
 
-    let attractions = AttractionManager.instance.getAttractions()
+    let attractions = AttractionGetter.instance.getAttractions()
     var locationManager = CLLocationManager()
     
     let fundingText: UILabel = {

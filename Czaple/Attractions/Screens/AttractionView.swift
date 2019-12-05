@@ -142,7 +142,7 @@ class AttractionView: UIViewController {
             player?.stop()
             geoButton.setTitle(NSLocalizedString("Przejdź do tablic", comment: ""), for: .normal)
         default:
-            AttractionManager.instance.boardAlert(controller: self)
+            BoardAlert.instance.boardAlertAction(controller: self)
             geoButton.setTitle(NSLocalizedString("Zatrzymaj", comment: ""), for: .normal)
         }
     }

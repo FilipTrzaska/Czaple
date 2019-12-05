@@ -11,7 +11,7 @@ import MapKit
 
 class AttractionList: UITableViewController {
     
-    let attractions = AttractionManager.instance.getAttractions()
+    let attractions = AttractionGetter.instance.getAttractions()
     let cellId = "attractionCell"
     var locManager = CLLocationManager()
     var currentLocation: CLLocation!
