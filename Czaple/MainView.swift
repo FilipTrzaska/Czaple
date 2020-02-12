@@ -9,10 +9,11 @@
 import UIKit
 import MapKit
 
-class MainView: UIViewController {
+class MainView: ViewController {
 
-    let attractions = AttractionManager.instance.getAttractions()
-    var locationManager = CLLocationManager()
+    private let attractionProvider: AttractionProviderProtocol
+    private let boardAlert: BoardAlerting
+    private var locationManager = CLLocationManager()
     
     let fundingText: UILabel = {
         let label = UILabel()
@@ -118,20 +119,26 @@ class MainView: UIViewController {
     }()
     
     @objc func mapClicked(sender: UIButton) {
-        let mapVC = CzapleMapView()
+        let mapVC = CzapleMapView(attractionProvider: attractionProvider)
         self.navigationController?.pushViewController(mapVC, animated: true)
     }
     
     @objc func attractionsClicked() {
-        let attractionList = AttractionList()
+        let attractionList = AttractionList(attractionProvider: attractionProvider, boardAlert: boardAlert)
         self.navigationController?.pushViewController(attractionList, animated: true)
     }
     
     @objc func czapleClicked() {
-        let questVC = AttractionView()
-        questVC.attraction = attractions[0]
+        let questVC = AttractionView(boardAlert: boardAlert)
+        questVC.attraction = attractionProvider.getAttractions()[0]
         
         self.navigationController?.pushViewController(questVC, animated: true)
+    }
+    
+    init(attractionProvider: AttractionProviderProtocol, boardAlert: BoardAlerting) {
+        self.attractionProvider = attractionProvider
+        self.boardAlert = boardAlert
+        super.init()
     }
     
     override func viewDidLoad() {

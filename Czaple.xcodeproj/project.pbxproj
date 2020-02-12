@@ -26,9 +26,17 @@
 		1C8C047E239804B90051ADC2 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C8C0479239804B90051ADC2 /* 3.mp3 */; };
 		1C8C047F239804B90051ADC2 /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C8C047A239804B90051ADC2 /* 5.mp3 */; };
 		1C8C0481239804CA0051ADC2 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1C8C0480239804CA0051ADC2 /* 1.mp3 */; };
+		1C8C04882399AC0B0051ADC2 /* FirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C04872399AC0B0051ADC2 /* FirstLaunch.swift */; };
+		1C8C048A2399B1490051ADC2 /* AttractionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C04892399B1490051ADC2 /* AttractionProvider.swift */; };
+		1C8C048C2399B1850051ADC2 /* BoardProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C048B2399B1850051ADC2 /* BoardProvider.swift */; };
+		1C8C048E2399B1C00051ADC2 /* BoardAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C048D2399B1C00051ADC2 /* BoardAlert.swift */; };
+		1C8C04902399B1FE0051ADC2 /* BoardAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8C048F2399B1FE0051ADC2 /* BoardAudioPlayer.swift */; };
 		1CA02D5E225B99060074E85D /* Attraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA02D5D225B99060074E85D /* Attraction.swift */; };
 		1CA02D60225B9CD20074E85D /* AttractionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA02D5F225B9CD20074E85D /* AttractionManager.swift */; };
 		1CA02D66225D08020074E85D /* CzapleMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CA02D65225D08020074E85D /* CzapleMapView.swift */; };
+		1CB343EE23F448DF0071F3EA /* IntroProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB343ED23F448DF0071F3EA /* IntroProvider.swift */; };
+		1CB343F423F476E40071F3EA /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB343F323F476E40071F3EA /* TableViewController.swift */; };
+		1CB343F623F477370071F3EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB343F523F477370071F3EA /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,9 +61,17 @@
 		1C8C0479239804B90051ADC2 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
 		1C8C047A239804B90051ADC2 /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
 		1C8C0480239804CA0051ADC2 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		1C8C04872399AC0B0051ADC2 /* FirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunch.swift; sourceTree = "<group>"; };
+		1C8C04892399B1490051ADC2 /* AttractionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionProvider.swift; sourceTree = "<group>"; };
+		1C8C048B2399B1850051ADC2 /* BoardProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardProvider.swift; sourceTree = "<group>"; };
+		1C8C048D2399B1C00051ADC2 /* BoardAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardAlert.swift; sourceTree = "<group>"; };
+		1C8C048F2399B1FE0051ADC2 /* BoardAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardAudioPlayer.swift; sourceTree = "<group>"; };
 		1CA02D5D225B99060074E85D /* Attraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attraction.swift; sourceTree = "<group>"; };
 		1CA02D5F225B9CD20074E85D /* AttractionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttractionManager.swift; sourceTree = "<group>"; };
 		1CA02D65225D08020074E85D /* CzapleMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CzapleMapView.swift; sourceTree = "<group>"; };
+		1CB343ED23F448DF0071F3EA /* IntroProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroProvider.swift; sourceTree = "<group>"; };
+		1CB343F323F476E40071F3EA /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		1CB343F523F477370071F3EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +104,9 @@
 		1C7A049D2257978A0072762A /* Czaple */ = {
 			isa = PBXGroup;
 			children = (
+				1CB343F723F47B350071F3EA /* Navigation */,
+				1CB343F223F476CA0071F3EA /* Abstractions */,
+				1C8C04862399ABB70051ADC2 /* Models */,
 				1C8C0480239804CA0051ADC2 /* 1.mp3 */,
 				1C8C0478239804B80051ADC2 /* 2.mp3 */,
 				1C8C0479239804B90051ADC2 /* 3.mp3 */,
@@ -142,6 +161,10 @@
 				1C8AE4F922F7026A0025B687 /* AttractionCell.swift */,
 				1C8AE4FA22F7026A0025B687 /* AttractionCell.xib */,
 				1CA02D5D225B99060074E85D /* Attraction.swift */,
+				1C8C04892399B1490051ADC2 /* AttractionProvider.swift */,
+				1C8C048B2399B1850051ADC2 /* BoardProvider.swift */,
+				1C8C048D2399B1C00051ADC2 /* BoardAlert.swift */,
+				1C8C048F2399B1FE0051ADC2 /* BoardAudioPlayer.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -161,6 +184,31 @@
 				1C7A04B42257F3200072762A /* IntroPage.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1C8C04862399ABB70051ADC2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1C8C04872399AC0B0051ADC2 /* FirstLaunch.swift */,
+				1CB343ED23F448DF0071F3EA /* IntroProvider.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1CB343F223F476CA0071F3EA /* Abstractions */ = {
+			isa = PBXGroup;
+			children = (
+				1CB343F323F476E40071F3EA /* TableViewController.swift */,
+				1CB343F523F477370071F3EA /* ViewController.swift */,
+			);
+			path = Abstractions;
+			sourceTree = "<group>";
+		};
+		1CB343F723F47B350071F3EA /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,18 +289,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C7A04B72258CA6E0072762A /* AttractionView.swift in Sources */,
+				1CB343EE23F448DF0071F3EA /* IntroProvider.swift in Sources */,
+				1C8C04882399AC0B0051ADC2 /* FirstLaunch.swift in Sources */,
+				1CB343F423F476E40071F3EA /* TableViewController.swift in Sources */,
 				1C8AE4FE22F715150025B687 /* ExtensionUIView.swift in Sources */,
 				1C7A04A12257978A0072762A /* MainView.swift in Sources */,
+				1C8C048E2399B1C00051ADC2 /* BoardAlert.swift in Sources */,
 				1C7A04B12257E5040072762A /* IntroSwipingViewController.swift in Sources */,
 				1CA02D5E225B99060074E85D /* Attraction.swift in Sources */,
 				1C8AE4FB22F7026A0025B687 /* AttractionCell.swift in Sources */,
+				1C8C04902399B1FE0051ADC2 /* BoardAudioPlayer.swift in Sources */,
+				1C8C048A2399B1490051ADC2 /* AttractionProvider.swift in Sources */,
 				1CA02D66225D08020074E85D /* CzapleMapView.swift in Sources */,
 				1C7A04B52257F3200072762A /* IntroPage.swift in Sources */,
 				1C8AE4F622F6FEF50025B687 /* AttractionList.swift in Sources */,
 				1C6FCB7322E371D500A16291 /* MenuCell.swift in Sources */,
 				1C7A04B32257EAA40072762A /* IntroCell.swift in Sources */,
 				1CA02D60225B9CD20074E85D /* AttractionManager.swift in Sources */,
+				1CB343F623F477370071F3EA /* ViewController.swift in Sources */,
 				1C7A049F2257978A0072762A /* AppDelegate.swift in Sources */,
+				1C8C048C2399B1850051ADC2 /* BoardProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,11 +9,11 @@
 import UIKit
 import MapKit
 
-class CzapleMapView: UIViewController, CLLocationManagerDelegate {
+class CzapleMapView: ViewController, CLLocationManagerDelegate {
     var window: UIWindow?
     var mapView: MKMapView?
     var locationManager: CLLocationManager?
-    var attractions = AttractionManager.instance.getAttractions()
+    var attractionProvider: AttractionProviderProtocol
     var other = [Attraction]()
     
     let visibleRadius: Double = 50
@@ -25,6 +25,11 @@ class CzapleMapView: UIViewController, CLLocationManagerDelegate {
         
         return imageView
     }()
+    
+    init(attractionProvider: AttractionProviderProtocol) {
+        self.attractionProvider = attractionProvider
+        super.init()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +89,7 @@ class CzapleMapView: UIViewController, CLLocationManagerDelegate {
             mapView!.addAnnotation(attractionPoint)
         }
         
-        for attraction in attractions {
+        for attraction in attractionProvider.getAttractions() {
             if attraction.coordinate != nil {
                 let attractionPoint = MKPointAnnotation()
                 attractionPoint.title = attraction.name

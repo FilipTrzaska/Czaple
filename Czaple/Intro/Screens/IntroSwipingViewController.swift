@@ -10,6 +10,9 @@ import UIKit
 
 class IntroSwipingViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    private let attractionProvider: AttractionProviderProtocol
+    private let boardAlert: BoardAlerting
+    
     let introPages = [
         IntroPage(imageName: "baner", introText: "Zapraszamy na kamienno-piaskową przygodę do Najpiękniejszej Wsi Dolnośląskiej 2015 roku", introBody: "Przygotowaliśmy ofertę pobytową, dzięki której poznacie skarby naszej miejscowości – piaskowce i kamienie oraz przeżyjecie przygody rodem z epoki kamienia łupanego."),
         IntroPage(imageName: "GRUPY_SZKOLNE_1", introText: "Piaskowy zawrót głowy", introBody: "Warsztaty artystyczne z wykorzystaniem lokalnych zasobów naturalnych – piasku i kamienia, do wyboru 1 z 5 warsztatów"),
@@ -58,7 +61,7 @@ class IntroSwipingViewController: UICollectionViewController, UICollectionViewDe
     }
     
     @objc func handleSkip() {
-        let mainView = MainView()
+        let mainView = MainView(attractionProvider: attractionProvider, boardAlert: boardAlert)
         let navigationController = UINavigationController(rootViewController: mainView)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true, completion: nil)
@@ -73,6 +76,16 @@ class IntroSwipingViewController: UICollectionViewController, UICollectionViewDe
         
         return pageControl
     }()
+    
+    init(attractionProvider: AttractionProviderProtocol, boardAlert: BoardAlerting) {
+        self.attractionProvider = attractionProvider
+        self.boardAlert = boardAlert
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

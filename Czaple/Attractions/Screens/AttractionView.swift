@@ -9,10 +9,11 @@
 import UIKit
 import AVKit
 
-class AttractionView: UIViewController {
+class AttractionView: ViewController {
     
     var attraction = Attraction()
-    let url = URL(string: "https://rowery.pielgrzymka.biz")
+    private let boardAlert: BoardAlerting
+    private let url = URL(string: "https://rowery.pielgrzymka.biz")
     var player: AVAudioPlayer?
     
     let geoButton: UIButton = {
@@ -74,6 +75,11 @@ class AttractionView: UIViewController {
         
         return textView
     }()
+    
+    init(boardAlert: BoardAlerting) {
+        self.boardAlert = boardAlert
+        super.init()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -142,7 +148,7 @@ class AttractionView: UIViewController {
             player?.stop()
             geoButton.setTitle(NSLocalizedString("Przejdź do tablic", comment: ""), for: .normal)
         default:
-            AttractionManager.instance.boardAlert(controller: self)
+            boardAlert.boardAlertAction(controller: self)
             geoButton.setTitle(NSLocalizedString("Zatrzymaj", comment: ""), for: .normal)
         }
     }

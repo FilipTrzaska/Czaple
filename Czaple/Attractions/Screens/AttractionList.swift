@@ -9,13 +9,20 @@
 import UIKit
 import MapKit
 
-class AttractionList: UITableViewController {
+class AttractionList: TableViewController {
     
-    let attractions = AttractionManager.instance.getAttractions()
-    let cellId = "attractionCell"
-    var locManager = CLLocationManager()
-    var currentLocation: CLLocation!
-
+    private let attractionProvider: AttractionProviderProtocol
+    private let boardAlert: BoardAlerting
+    private let cellId = "attractionCell"
+    private var locManager = CLLocationManager()
+    private var currentLocation: CLLocation!
+    
+    init(attractionProvider: AttractionProviderProtocol, boardAlert: BoardAlerting) {
+        self.attractionProvider = attractionProvider
+        self.boardAlert = boardAlert
+        super.init()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,15 +37,24 @@ class AttractionList: UITableViewController {
             ( currentLocation = locManager.location ) : ( currentLocation = CLLocation(latitude: 0, longitude: 0) )
         navigationController?.isNavigationBarHidden = false
     }
+    // MARK: - Navigation
 
-    // MARK: - Table view data source
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+
+}
+
+extension AttractionList {
+// MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return attractions.count - 1 // czaple as first will not be displayed
+        return attractionProvider.getAttractions().count - 1 // czaple as first will not be displayed
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -48,30 +64,21 @@ class AttractionList: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! AttractionCell
         
-        let attraction = attractions[indexPath.row + 1]
-//        let distance = currentLocation.distance(from: CLLocation(latitude: attraction.coordinate!.latitude, longitude: attraction.coordinate!.longitude)) / 1000
+        let attraction = attractionProvider.getAttractions()[indexPath.row + 1]
+        let distance = currentLocation.distance(from: CLLocation(latitude: attraction.coordinate!.latitude, longitude: attraction.coordinate!.longitude)) / 1000
         
         cell.photo.image = UIImage(named: attraction.name!)
         cell.title.text = attraction.name
-//        cell.distance.text = String(format:"%.2f", distance) + " km"
+        cell.distance.text = String(format:"%.2f", distance) + " km"
         cell.round.dropShadow()
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let attractionVC = AttractionView()
-        attractionVC.attraction = attractions[indexPath.row + 1]
+        let attractionVC = AttractionView(boardAlert: boardAlert)
+        attractionVC.attraction = attractionProvider.getAttractions()[indexPath.row + 1]
         
         self.navigationController?.pushViewController(attractionVC, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
