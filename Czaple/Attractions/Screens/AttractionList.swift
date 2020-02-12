@@ -9,12 +9,19 @@
 import UIKit
 import MapKit
 
-class AttractionList: UITableViewController {
+class AttractionList: TableViewController {
     
-    private let attractionProvider = AttractionProvider()
+    private let attractionProvider: AttractionProviderProtocol
+    private let boardAlert: BoardAlerting
     private let cellId = "attractionCell"
     private var locManager = CLLocationManager()
     private var currentLocation: CLLocation!
+    
+    init(attractionProvider: AttractionProviderProtocol, boardAlert: BoardAlerting) {
+        self.attractionProvider = attractionProvider
+        self.boardAlert = boardAlert
+        super.init()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +37,22 @@ class AttractionList: UITableViewController {
             ( currentLocation = locManager.location ) : ( currentLocation = CLLocation(latitude: 0, longitude: 0) )
         navigationController?.isNavigationBarHidden = false
     }
+    // MARK: - Navigation
 
-    // MARK: - Table view data source
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+
+}
+
+extension AttractionList {
+// MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return attractionProvider.getAttractions().count - 1 // czaple as first will not be displayed
     }
@@ -60,18 +76,9 @@ class AttractionList: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let attractionVC = AttractionView()
+        let attractionVC = AttractionView(boardAlert: boardAlert)
         attractionVC.attraction = attractionProvider.getAttractions()[indexPath.row + 1]
         
         self.navigationController?.pushViewController(attractionVC, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

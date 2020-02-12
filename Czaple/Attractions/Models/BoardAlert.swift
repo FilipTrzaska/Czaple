@@ -13,8 +13,13 @@ protocol BoardAlerting {
 }
 
 final class BoardAlert: BoardAlerting {
-    let boardProvider = BoardProvider()
-    let boardAudioPlayer = BoardAudioPlayer()
+    let boardProvider: BoardProviding
+    let boardAudioPlayer: BoardAudioPlayerProtocol
+    
+    init(boardProvider: BoardProviding, boardAudioPlayer: BoardAudioPlayerProtocol) {
+        self.boardProvider = boardProvider
+        self.boardAudioPlayer = boardAudioPlayer
+    }
     
     func boardAlertAction(controller: UIViewController) {
         let alertController = UIAlertController(title: NSLocalizedString("Opis której tablicy odtworzyć?", comment: ""), message: NSLocalizedString("Wybierz jedną, by kontynuować.", comment: ""), preferredStyle: .actionSheet)

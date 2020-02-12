@@ -9,10 +9,10 @@
 import UIKit
 import AVKit
 
-class AttractionView: UIViewController {
+class AttractionView: ViewController {
     
     var attraction = Attraction()
-    private let boardAlert = BoardAlert()
+    private let boardAlert: BoardAlerting
     private let url = URL(string: "https://rowery.pielgrzymka.biz")
     var player: AVAudioPlayer?
     
@@ -75,6 +75,11 @@ class AttractionView: UIViewController {
         
         return textView
     }()
+    
+    init(boardAlert: BoardAlerting) {
+        self.boardAlert = boardAlert
+        super.init()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
