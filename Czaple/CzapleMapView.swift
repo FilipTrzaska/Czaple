@@ -13,7 +13,7 @@ class CzapleMapView: UIViewController, CLLocationManagerDelegate {
     var window: UIWindow?
     var mapView: MKMapView?
     var locationManager: CLLocationManager?
-    var attractions = AttractionGetter.instance.getAttractions()
+    var attractionProvider = AttractionProvider()
     var other = [Attraction]()
     
     let visibleRadius: Double = 50
@@ -84,7 +84,7 @@ class CzapleMapView: UIViewController, CLLocationManagerDelegate {
             mapView!.addAnnotation(attractionPoint)
         }
         
-        for attraction in attractions {
+        for attraction in attractionProvider.getAttractions() {
             if attraction.coordinate != nil {
                 let attractionPoint = MKPointAnnotation()
                 attractionPoint.title = attraction.name

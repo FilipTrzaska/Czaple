@@ -8,8 +8,11 @@
 
 import AVKit
 
-class BoardAudioPlayer {
-    static let instance = BoardAudioPlayer()
+protocol BoardAudioPlayerProtocol {
+    func playRecording(board: Int, controller: AttractionView)
+}
+
+final class BoardAudioPlayer: BoardAudioPlayerProtocol {
     
     func playRecording(board: Int, controller: AttractionView) {
         guard let url = Bundle.main.url(forResource: "\(board + 1)", withExtension: "mp3") else { return }

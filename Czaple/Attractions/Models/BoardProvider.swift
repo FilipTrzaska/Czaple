@@ -1,5 +1,5 @@
 //
-//  BoardGetter.swift
+//  BoardProvider.swift
 //  Czaple
 //
 //  Created by Filip Trzaska on 05/12/2019.
@@ -8,8 +8,11 @@
 
 import MapKit
 
-class BoardGetter {
-    static let instance = BoardGetter()
+protocol BoardProviding {
+    func getTablice() -> [Attraction]
+}
+
+final class BoardProvider: BoardProviding {
     
      func getTablice() -> [Attraction] {
          var tablice = [Attraction]()

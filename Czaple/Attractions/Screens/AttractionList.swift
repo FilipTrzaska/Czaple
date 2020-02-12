@@ -11,11 +11,11 @@ import MapKit
 
 class AttractionList: UITableViewController {
     
-    let attractions = AttractionGetter.instance.getAttractions()
-    let cellId = "attractionCell"
-    var locManager = CLLocationManager()
-    var currentLocation: CLLocation!
-
+    private let attractionProvider = AttractionProvider()
+    private let cellId = "attractionCell"
+    private var locManager = CLLocationManager()
+    private var currentLocation: CLLocation!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,7 +38,7 @@ class AttractionList: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return attractions.count - 1 // czaple as first will not be displayed
+        return attractionProvider.getAttractions().count - 1 // czaple as first will not be displayed
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -48,12 +48,12 @@ class AttractionList: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! AttractionCell
         
-        let attraction = attractions[indexPath.row + 1]
-//        let distance = currentLocation.distance(from: CLLocation(latitude: attraction.coordinate!.latitude, longitude: attraction.coordinate!.longitude)) / 1000
+        let attraction = attractionProvider.getAttractions()[indexPath.row + 1]
+        let distance = currentLocation.distance(from: CLLocation(latitude: attraction.coordinate!.latitude, longitude: attraction.coordinate!.longitude)) / 1000
         
         cell.photo.image = UIImage(named: attraction.name!)
         cell.title.text = attraction.name
-//        cell.distance.text = String(format:"%.2f", distance) + " km"
+        cell.distance.text = String(format:"%.2f", distance) + " km"
         cell.round.dropShadow()
         
         return cell
@@ -61,7 +61,7 @@ class AttractionList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let attractionVC = AttractionView()
-        attractionVC.attraction = attractions[indexPath.row + 1]
+        attractionVC.attraction = attractionProvider.getAttractions()[indexPath.row + 1]
         
         self.navigationController?.pushViewController(attractionVC, animated: true)
     }

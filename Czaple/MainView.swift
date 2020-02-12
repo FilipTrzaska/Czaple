@@ -11,7 +11,7 @@ import MapKit
 
 class MainView: UIViewController {
 
-    let attractions = AttractionGetter.instance.getAttractions()
+    let attractionProvider = AttractionProvider()
     var locationManager = CLLocationManager()
     
     let fundingText: UILabel = {
@@ -129,7 +129,7 @@ class MainView: UIViewController {
     
     @objc func czapleClicked() {
         let questVC = AttractionView()
-        questVC.attraction = attractions[0]
+        questVC.attraction = attractionProvider.getAttractions()[0]
         
         self.navigationController?.pushViewController(questVC, animated: true)
     }

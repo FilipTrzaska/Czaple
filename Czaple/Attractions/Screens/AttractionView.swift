@@ -12,7 +12,8 @@ import AVKit
 class AttractionView: UIViewController {
     
     var attraction = Attraction()
-    let url = URL(string: "https://rowery.pielgrzymka.biz")
+    private let boardAlert = BoardAlert()
+    private let url = URL(string: "https://rowery.pielgrzymka.biz")
     var player: AVAudioPlayer?
     
     let geoButton: UIButton = {
@@ -142,7 +143,7 @@ class AttractionView: UIViewController {
             player?.stop()
             geoButton.setTitle(NSLocalizedString("Przejdź do tablic", comment: ""), for: .normal)
         default:
-            BoardAlert.instance.boardAlertAction(controller: self)
+            boardAlert.boardAlertAction(controller: self)
             geoButton.setTitle(NSLocalizedString("Zatrzymaj", comment: ""), for: .normal)
         }
     }

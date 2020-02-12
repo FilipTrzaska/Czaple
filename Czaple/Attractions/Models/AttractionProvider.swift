@@ -1,5 +1,5 @@
 //
-//  AttractionGetter.swift
+//  AttractionProvider.swift
 //  Czaple
 //
 //  Created by Filip Trzaska on 05/12/2019.
@@ -9,9 +9,11 @@
 import Foundation
 import MapKit
 
-class AttractionGetter {
-    static let instance = AttractionGetter()
-    
+protocol AttractionProviderProtocol {
+    func getAttractions() -> [Attraction]
+}
+
+final class AttractionProvider: AttractionProviderProtocol {
     func getAttractions() -> [Attraction] {
         var attractions = [Attraction]()
         

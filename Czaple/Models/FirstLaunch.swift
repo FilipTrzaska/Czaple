@@ -8,30 +8,19 @@
 
 import UIKit
 
-class FirstLaunch {
-    static let instance = FirstLaunch()
+protocol FirstLaunchProtocol {
+    func checkFirstLaunch() -> Bool
+}
+
+class FirstLaunch: FirstLaunchProtocol {
+    private let userDefaults = UserDefaults.standard
     
-    func checkFirstLaunch(window: UIWindow){
-        if UserDefaults.standard.object(forKey: "firstTime") == nil {
-            UserDefaults.standard.set(true, forKey: "firstTime")
-        }
-        UserDefaults.standard.synchronize()
-        
-        if UserDefaults.standard.bool(forKey: "firstTime") == true {
-            let layout = UICollectionViewFlowLayout()
-            layout.scrollDirection = .horizontal
-            let introViewController = IntroSwipingViewController(collectionViewLayout: layout)
-            UserDefaults.standard.set(false, forKey: "firstTime")
-            UserDefaults.standard.synchronize()
-            
-            window.rootViewController = introViewController
-        } else {
-            let mainViewController = MainView()
-            let navigationController = UINavigationController(rootViewController: mainViewController)
-            window.rootViewController = navigationController
+    func checkFirstLaunch() -> Bool {
+        if userDefaults.object(forKey: "firstTime") == nil {
+            userDefaults.set(true, forKey: "firstTime")
+            return true
         }
         
-        window.makeKeyAndVisible()
+        return false
     }
-    
 }

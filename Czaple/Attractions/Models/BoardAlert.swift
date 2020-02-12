@@ -8,14 +8,19 @@
 
 import UIKit
 
-class BoardAlert {
-    static let instance = BoardAlert()
+protocol BoardAlerting {
+    func boardAlertAction(controller: UIViewController)
+}
+
+final class BoardAlert: BoardAlerting {
+    let boardProvider = BoardProvider()
+    let boardAudioPlayer = BoardAudioPlayer()
     
     func boardAlertAction(controller: UIViewController) {
         let alertController = UIAlertController(title: NSLocalizedString("Opis której tablicy odtworzyć?", comment: ""), message: NSLocalizedString("Wybierz jedną, by kontynuować.", comment: ""), preferredStyle: .actionSheet)
         for board in 0...4 {
-            alertController.addAction(UIAlertAction(title: BoardGetter.instance.getTablice()[board].name, style: .default, handler: { (action) in
-                BoardAudioPlayer.instance.playRecording(board: board, controller: controller as! AttractionView)
+            alertController.addAction(UIAlertAction(title: boardProvider.getTablice()[board].name, style: .default, handler: { (action) in
+                self.boardAudioPlayer.playRecording(board: board, controller: controller as! AttractionView)
             }))
         }
         let cancel = UIAlertAction(title: NSLocalizedString("Anuluj", comment: ""), style: .cancel, handler: nil)
